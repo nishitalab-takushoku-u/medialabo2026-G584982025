@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(154, 206, 255);
+}
+
+p {
+    background-color: white;
+    padding: 5px;
+}
+
+h1 {
+    background-color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2 {
+    border: solid white 5pt;
+    padding: 5px;
+    font-display: auto;
+    font-family: unset;
+}
+
+h3 {
+    background: linear-gradient(to right,white,rgb(154,206,255),#94fc94,#94fc94)
+}
+
+div#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-auto-rows: 150px;
+    width: 1024px;
+}
+
+div#grid > div {
+    background-color: #94fc94;
+}

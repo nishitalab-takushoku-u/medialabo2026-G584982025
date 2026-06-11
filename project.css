@@ -1,0 +1,25 @@
+body {
+    background-color: blanchedalmond;
+}
+
+h1 {
+    padding: 10px;
+    background-color: rgb(97, 103, 146);
+    width: 1024px;
+}
+
+li {
+    padding: 10px;
+    border: solid rgb(0, 0, 0) 2pt;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 1024px;
+}
+
+ul {
+    list-style-type: none;
+}
+div#grid {
+    display: grid;
+    grid-gap: 10px;
+    width: 1024px;
+}
