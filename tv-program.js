@@ -22,7 +22,6 @@ function print(data) {
   console.log(kennsaku[0].kekka1.join('\n'));
   console.log(kennsaku[1].kekka2.join('\n'));
 }
-print();
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
 
