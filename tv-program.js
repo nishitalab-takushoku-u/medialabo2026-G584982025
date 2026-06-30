@@ -22,6 +22,13 @@ function print(data) {
   console.log(kennsaku[0].kekka1.join('\n'));
   console.log(kennsaku[1].kekka2.join('\n'));
 }
+
+let k;
+k = document.querySelector('#kensaku');
+
+let b;
+b = document.querySelector('button#kensakub');
+b.addEventListener('click', kensaku);
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
 
