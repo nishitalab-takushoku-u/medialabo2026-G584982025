@@ -18,9 +18,14 @@ function print(data) {
       "サブタイトル: パラスポーツの魅力をアニメで伝える番組。高速滑走に挑む精神力が試されるパラアルペンスキーを描く。キャラ原案：江口寿史／曲：Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ",
       "出演者: 【声】松本まりか，【出演】Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ，【監督】西村一彦，【脚本】加納新太，【原案】江口寿史"]
     }
-  ]
-  console.log(kennsaku[0].kekka1.join('\n'));
-  console.log(kennsaku[1].kekka2.join('\n'));
+  ];
+  for (let a of kennsaku[0].kekka1) {
+    console.log(a);
+  }
+
+  for (let b of kennsaku[1].kekka2) {
+    console.log(b);
+  }
 }
 
 let k;
@@ -28,10 +33,64 @@ k = document.querySelector('#kensaku');
 
 let b;
 b = document.querySelector('button#kensakub');
-b.addEventListener('click', kensaku);
+b.addEventListener('click', printDom);
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  let t;
+  t = document.createElement('h3');
+  t.textContent = 'NHKの番組表（検索結果は2件)'
 
+  result = document.querySelector('div#result');
+  result.insertAdjacentElement('beforeend', t);
+
+   kennsaku = [
+    {kekka11:"検索結果1件目", 
+      kekka12:["開始時刻: 2022年3月4日04:35:00",
+      "終了時刻: 2022年3月4日04:40:00",
+      "チャンネル: NHK総合","タイトル:みんなのうた「ごっつぉさま」／「超変身！ミネラルフォーマーズ」",
+      "サブタイトル:みんなのうた「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ゴールデンボンバー",
+      "番組説明:みんなのうた「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ゴールデンボンバー",
+      "出演者:"]
+    },
+    {kekka21:"検索結果2件目", 
+      kekka22:["開始時刻: 2022年3月4日 23:05:00",
+      "終了時刻: 2022年3月4日 23:10:00",
+      "チャンネル: NHK総合",
+      "タイトル: パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ",
+      "サブタイトル: パラスポーツの魅力をアニメで伝える番組。高速滑走に挑む精神力が試されるパラアルペンスキーを描く。キャラ原案：江口寿史／曲：Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ",
+      "出演者: 【声】松本まりか，【出演】Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ，【監督】西村一彦，【脚本】加納新太，【原案】江口寿史"]
+    }
+  ];
+  
+  let h21 = document.createElement('h2');
+  h21.textContent = (kennsaku[0].kekka11);
+
+  result = document.querySelector('div#result');
+  result.insertAdjacentElement('beforeend', h21);
+
+  let u1 = document.createElement('ul');
+  for (let a of kennsaku[0].kekka12) {
+    let l = document.createElement('li');
+    l.textContent = (a);
+    u1.insertAdjacentElement('beforeend', l);
+  }
+
+  result.insertAdjacentElement('beforeend', u1);
+
+  let h22 = document.createElement('h2');
+  h22.textContent = (kennsaku[1].kekka21);
+
+  result = document.querySelector('div#result');
+  result.insertAdjacentElement('beforeend', h22);
+
+  let u2 = document.createElement('ul');
+  for (let b of kennsaku[1].kekka22) {
+    let l = document.createElement('li');
+    l.textContent = (b);
+    u2.insertAdjacentElement('beforeend', l);
+  }
+
+  result.insertAdjacentElement('beforeend', u2);
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述

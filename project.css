@@ -23,3 +23,8 @@ div#grid {
     grid-gap: 10px;
     width: 1024px;
 }
+div#result {
+    display: grid;
+    grid-gap: 10px;
+    width: 1024px;
+}
