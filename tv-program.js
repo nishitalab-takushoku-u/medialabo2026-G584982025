@@ -1,111 +1,101 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  let kennsaku = [
-    {kekka1: ["検索結果1件目",
-      "開始時刻: 2022年3月4日04:35:00",
-      "終了時刻: 2022年3月4日04:40:00",
-      "チャンネル: NHK総合","タイトル:みんなのうた「ごっつぉさま」／「超変身！ミネラルフォーマーズ」",
-      "サブタイトル:みんなのうた「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ゴールデンボンバー",
-      "番組説明:みんなのうた「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ゴールデンボンバー",
-      "出演者:"]
-    },
-    {kekka2: ["検索結果2件目",
-      "開始時刻: 2022年3月4日 23:05:00",
-      "終了時刻: 2022年3月4日 23:10:00",
-      "チャンネル: NHK総合",
-      "タイトル: パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ",
-      "サブタイトル: パラスポーツの魅力をアニメで伝える番組。高速滑走に挑む精神力が試されるパラアルペンスキーを描く。キャラ原案：江口寿史／曲：Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ",
-      "出演者: 【声】松本まりか，【出演】Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ，【監督】西村一彦，【脚本】加納新太，【原案】江口寿史"]
-    }
-  ];
-  for (let a of kennsaku[0].kekka1) {
-    console.log(a);
-  }
-
-  for (let b of kennsaku[1].kekka2) {
-    console.log(b);
+  let i = 1;
+  for(let a of data.list.g1) {
+    console.log('検索結果' + i + '件目');
+    console.log('タイトル:' + a.title);
+    console.log('チャンネル:' + a.service.name);
+    console.log('開始時刻:' + a.start_time);
+    console.log('終了時刻:' + a.end_time);
+    console.log('サブタイトル:' + a.subtitle);
+    console.log('番組説明:' + a.content);
+    console.log('出演者:' + a.act);
+    i = i + 1;
   }
 }
 
 let k;
-k = document.querySelector('#kensaku');
+k = document.querySelector('#kensaku1');
 
-let b;
-b = document.querySelector('button#kensakub');
-b.addEventListener('click', printDom);
+// let b;
+// b = document.querySelector('button#serviseb');
+// b.addEventListener('click', printDom);
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
-  let t;
-  t = document.createElement('h3');
-  t.textContent = 'NHKの番組表（検索結果は2件)'
+  const result = document.querySelector('div#result');
+  result.textContent = '';
+  let i = 1;
+  for(let a of data.list.g1) {
+    let t = document.createElement('h3');
+    t.textContent = '検索結果' + i + '件目';
+    result.insertAdjacentElement('beforeend', t);
 
-  result = document.querySelector('div#result');
-  result.insertAdjacentElement('beforeend', t);
+    let title = document.createElement('h2');
+    title.textContent = 'タイトル:' + a.title;
+    result.insertAdjacentElement('beforeend', title);
 
-   kennsaku = [
-    {kekka11:"検索結果1件目", 
-      kekka12:["開始時刻: 2022年3月4日04:35:00",
-      "終了時刻: 2022年3月4日04:40:00",
-      "チャンネル: NHK総合","タイトル:みんなのうた「ごっつぉさま」／「超変身！ミネラルフォーマーズ」",
-      "サブタイトル:みんなのうた「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ゴールデンボンバー",
-      "番組説明:みんなのうた「ごっつぉさま」うた：須貝智郎／「超変身！ミネラルフォーマーズ」うた：鬼龍院翔ゴールデンボンバー",
-      "出演者:"]
-    },
-    {kekka21:"検索結果2件目", 
-      kekka22:["開始時刻: 2022年3月4日 23:05:00",
-      "終了時刻: 2022年3月4日 23:10:00",
-      "チャンネル: NHK総合",
-      "タイトル: パラスポーツ×アニメ「アニ×パラ」▽パラアルペンスキーテーマ曲江口寿史×ＡＣＣ",
-      "サブタイトル: パラスポーツの魅力をアニメで伝える番組。高速滑走に挑む精神力が試されるパラアルペンスキーを描く。キャラ原案：江口寿史／曲：Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ",
-      "出演者: 【声】松本まりか，【出演】Ａｗｅｓｏｍｅ　Ｃｉｔｙ　Ｃｌｕｂ，【監督】西村一彦，【脚本】加納新太，【原案】江口寿史"]
-    }
-  ];
-  
-  let h21 = document.createElement('h2');
-  h21.textContent = (kennsaku[0].kekka11);
+    let u = document.querySelector('div#result');
+    u = document.createElement('ul');
 
-  result = document.querySelector('div#result');
-  result.insertAdjacentElement('beforeend', h21);
+    let name = document.createElement('li');
+    name.textContent = 'チャンネル:' + a.service.name;
+    result.insertAdjacentElement('beforeend', name);
 
-  let u1 = document.createElement('ul');
-  for (let a of kennsaku[0].kekka12) {
-    let l = document.createElement('li');
-    l.textContent = (a);
-    u1.insertAdjacentElement('beforeend', l);
+    let start_time = document.createElement('li');
+    start_time.textContent = '開始時刻:' + a.start_time;
+    result.insertAdjacentElement('beforeend', start_time);
+ 
+    let end_time = document.createElement('li');
+    end_time.textContent = '終了時刻:' + a.end_time;
+    result.insertAdjacentElement('beforeend', end_time);
+
+    let subtitle = document.createElement('li');
+    subtitle.textContent = 'サブタイトル:' + a.subtitle;
+    result.insertAdjacentElement('beforeend', subtitle);
+
+    let content = document.createElement('li');
+    content.textContent = '番組説明:' + a.content;
+    result.insertAdjacentElement('beforeend', content);
+
+    let act = document.createElement('li');
+    act.textContent = '出演者:' + a.act;
+    result.insertAdjacentElement('beforeend', act);
+
+    i = i + 1;
   }
-
-  result.insertAdjacentElement('beforeend', u1);
-
-  let h22 = document.createElement('h2');
-  h22.textContent = (kennsaku[1].kekka21);
-
-  result = document.querySelector('div#result');
-  result.insertAdjacentElement('beforeend', h22);
-
-  let u2 = document.createElement('ul');
-  for (let b of kennsaku[1].kekka22) {
-    let l = document.createElement('li');
-    l.textContent = (b);
-    u2.insertAdjacentElement('beforeend', l);
-  }
-
-  result.insertAdjacentElement('beforeend', u2);
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
+let sb;
+sb = document.querySelector('button#serviseb');
+sb.addEventListener('click', sendRequest);
 
-
-
+let gb;
+gb = document.querySelector('button#genreb');
+gb.addEventListener('click', sendRequest);
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+  let sI = document.querySelector('input#servise');
+  let gI = document.querySelector('input#genre');
+  
+  let service = sI.value;
+  let genre = gI.value;
 
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/nhk/'+ service +'-'+ genre +'-j.json';
+
+     axios.get(url)
+        .then(showResult)
+        .catch(showError)
+        .then(finish);
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
-
+  let responseData = resp.data;
+  console.log(responseData);
+  printDom(responseData);
 }
 
 // 課題6-1: 通信エラーが発生した時の処理

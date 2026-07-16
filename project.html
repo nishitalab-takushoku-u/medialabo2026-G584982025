@@ -6,13 +6,19 @@
     <meta charset="utf-8">
     <title>project</title>
     <link rel="stylesheet" href="project.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="tv-program.js" defer></script>
   </head>
  
   <body>
     <h1>番組表の検索結果</h1>
-    <p><input type="text" name="kensaku" id="kensaku" size="20">
-      <button id="kensakub">検索</button>
+    <p>
+      <input type="text" name="kensaku1" id="servise" size="20">
+      <button id="serviseb">チャンネル</button>
+    </p>
+    <p>
+      <input type="text" name="kensaku2" id="genre" size="20">
+      <button id="genreb">ジャンル</button>
     </p>
 
     <div id = result></div>
